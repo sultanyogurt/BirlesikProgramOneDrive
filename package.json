@@ -1,0 +1,37 @@
+{
+  "name": "birlesik-program-onedrive",
+  "version": "1.1.0",
+  "description": "Birlesik Program - OneDrive senkronlu yerel veri (Electron)",
+  "main": "main.js",
+  "author": "Ali Kabaca",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-builder --win portable",
+    "dist:nsis": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "30.0.6",
+    "electron-builder": "24.13.3",
+    "better-sqlite3": "9.4.3"
+  },
+  "build": {
+    "appId": "com.birlesik.program.onedrive",
+    "productName": "Birlesik Program",
+    "files": [
+      "main.js",
+      "preload.js",
+      "bridge.d.ts",
+      "app/**/*",
+      "icon.ico"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "icon.ico",
+      "artifactName": "BirlesikProgram-${version}-Portable.exe"
+    }
+  }
+}
